@@ -24,7 +24,9 @@ fun ModifierExample() {
             .background(Color.Magenta),
         contentAlignment = Alignment.Center
     ) {
-        Text("This is the Modifier", modifier = Modifier.background(Color.Cyan).size(50.dp))
+        Text("This is the Modifier", modifier = Modifier
+            .background(Color.Cyan)
+            .size(50.dp))
     }
 
 }
@@ -32,6 +34,6 @@ fun ModifierExample() {
 
 @Preview(showSystemUi = true)
 @Composable
-fun PreviewModifier(){
+fun PreviewModifier() {
     ModifierExample()
 }
