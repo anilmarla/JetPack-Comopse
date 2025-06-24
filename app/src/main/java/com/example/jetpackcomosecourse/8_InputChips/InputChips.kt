@@ -1,6 +1,8 @@
-package com.example.jetpackcomosecourse
+package com.example.jetpackcomosecourse.`8_InputChips`
 
 import android.graphics.drawable.Icon
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
@@ -14,9 +16,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.LineHeightStyle
+import androidx.compose.ui.tooling.preview.Preview
 
-@Composable
+/*@Composable
 fun InputChipExamples() {
     var enable: Boolean by remember {
         mutableStateOf(true)
@@ -46,5 +51,48 @@ fun InputChipExamples() {
             )
     }
 
+}*/
+
+@Composable
+fun InputChipExample(
+    text: String,
+    onDismiss: () -> Unit,
+) {
+    var enabled by remember { mutableStateOf(true) }
+    if (!enabled) return
+
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        InputChip(
+            onClick = {
+                onDismiss()
+                enabled = !enabled
+            },
+            label = { Text(text) },
+            selected = enabled,
+            avatar = {
+                Icon(
+                    Icons.Filled.Person,
+                    contentDescription = "Localized description",
+                    Modifier.size(InputChipDefaults.AvatarSize)
+                )
+            },
+            trailingIcon = {
+                Icon(
+                    Icons.Default.Close,
+                    contentDescription = "Localized description",
+                    Modifier.size(InputChipDefaults.AvatarSize)
+                )
+            },
+        )
+    }
+
 }
+
+@Preview(showSystemUi = true)
+@Composable
+fun PreveiwInputChip() {
+    InputChipExample("Input Chip") { }
+}
+
+
 
