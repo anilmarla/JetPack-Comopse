@@ -114,7 +114,7 @@ fun CheckboxParentExample() {
 
 @Preview(showSystemUi = true)
 @Composable
-fun previewChecBox() {
+fun PreviewChecBox() {
     CheckboxParentExample()
 }
 
