@@ -1,6 +1,7 @@
 package com.example.jetpackcomosecourse
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -64,6 +65,17 @@ fun ColourfulText() {
         )
     }
 
+
+}
+
+private val function: @Composable BoxScope.() -> Unit = {
+    Text(
+        text = "Hey this is Anilkumar this is experimental text in jetpack compose ".repeat(50),
+        maxLines = 2,
+        // modifier = Modifier.basicMarquee()--> For anilmation ,
+        fontSize = 50.sp,
+        overflow = TextOverflow.Ellipsis
+    )
 
 }
 
